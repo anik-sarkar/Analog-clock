@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analog clock</title>
+     <link rel="stylesheet" href="style.css">
+     
+</head>
+<body>
+    <div class="clock">
+        <div class="hour">
+            <div class="hr"id="hr"></div>
+        </div>
+        <div class="min">
+            <div class="mn" id="mn"></div>
+        </div>
+        <div class="sec">
+            <div class="sc" id="sc"></div>
+        </div>
+        <br><br>
+    </div>
+    <div id="time">
+        <div class="time-zone"><span id="hour">00</span><span>:</span></div>
+        <div class="time-zone"><span id="mins">00</span><span>:</span></div>
+        <div class="time-zone"><span id="secs">00</span><span></span></div>
+    </div>
+    <script>
+        const hr = document.querySelector("#hr");
+        const mn = document.querySelector("#mn");
+        const sc = document.querySelector("#sc");
+
+       setInterval(()=>{
+        let day = new Date();
+        let hh = day.getHours()*30;
+        let mm = day.getMinutes()*6;
+        let ss = day.getSeconds()*6;
+
+
+
+
+
+        hr.style.transform = `rotateZ(${hh+(mm/12)}deg`
+        mn.style.transform = `rotateZ(${mm}deg`
+        sc.style.transform = `rotateZ(${ss}deg`
+
+
+       })
+
+
+
+        function clock(){
+        var hours = document.getElementById('hour') ;
+        var h = new Date().getHours();
+        var mins = document.getElementById('mins');
+        var m = new Date().getMinutes();
+        var secs = document.getElementById('secs');
+        var s = new Date().getSeconds();
+
+
+        h = ( h < 10) ? "0" + h : h
+        m = ( m < 10 ) ? "0" + m : m
+        s = ( s < 10 ) ? "0" + s : s
+
+
+        hours.innerHTML = h;
+        mins.innerHTML = m;
+        secs.innerHTML = s;
+        }
+
+        var interval = setInterval(clock,1000);       
+       
+
+
+    </script>
+</body>
+</html>
